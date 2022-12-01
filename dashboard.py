@@ -6,7 +6,7 @@ GUI.title('DASH BOARD IOT CONTROL SMART FARM')
 ## GUI.state('zoomed')  make full screen
 
 
-###test## 12
+###test## 123
 
 
 GUI.mainloop()
