@@ -30,6 +30,14 @@ def check_temp():
         h = d.humidity()
         print('DHT22:',t,h,)
         time.sleep(2)
+        
+def runserver():
+    global led_status
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    host = ''
+    port = 80
+    s.bind((host,port))
+    s.listen(5)
 
 ################wifi##############
 wifi = 'Prayut'
@@ -70,3 +78,7 @@ while True:
 #########server########################   
     client.send(html)
     client.close()
+
+
+_thread.start_new_thread(runserver,())
+_thread.start_new_thread(checktemp,())
