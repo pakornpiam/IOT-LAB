@@ -23,18 +23,18 @@ wifi = 'Prayut'
 password = 'yuth2474'
 wlan = network.WLAN(network.STA_IF) # create station interface
 wlan.active(True)       # activate the interface
-time.sleep(2)
+time.sleep(1)
 wlan.connect(wifi, password)
-time.sleep(2)
+time.sleep(5)
 print(wlan.isconnected())
 #####################wifi############ 
 
 print('temperature checking...')
-d = dht.DHT22(Pin(16))
+d = dht.DHT22(Pin(15))
 
 for i in range(20):
     d.measure()
-    time.sleep(1)
+    time.sleep(2)
     temp = d.temperature()
     humid = d.humidity()
     print(temp)

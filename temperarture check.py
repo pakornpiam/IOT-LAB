@@ -8,7 +8,7 @@ import dht
 led = Pin(15, Pin.OUT)
 led.off()
 #########LCD########
-i2c = SoftI2C(scl=Pin(5), sda=Pin(4), freq=1000000)
+i2c = SoftI2C(scl=Pin(22), sda=Pin(21), freq=1000000)
 lcd = I2cLcd(i2c, 0x27, 2, 16)
 time.sleep(1)
 
@@ -16,7 +16,7 @@ lcd.clear() # clear LCD
 text = 'Starting...'
 lcd.putstr(text)
 ###############DHT###############
-d = dht.DHT22(Pin(16))
+d = dht.DHT22(Pin(15))
 t = 0
 h = 0
 def check_temp():
@@ -57,6 +57,8 @@ if status == True:
     time.sleep(2)
     lcd.clear()
     lcd.putstr('Wifi Connected')
+    time.sleep(2)
+   
 else:
     lcd.clear
     lcd.putstr('Wifi disconnected')
